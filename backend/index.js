@@ -153,6 +153,7 @@ app.post('/add-note', authenticatetoken, async (req, res) => {
         return res.status(400).json({ error: true, message: "Content is Required!" })
     }
 
+    
     try {
         const note = new Note({
             title,
@@ -251,7 +252,6 @@ app.get('/get-all-note', authenticatetoken, async (req, res) => {
 })
 
 // Delete A Note
-
 app.delete('/delete-note/:noteId', authenticatetoken, async (req, res) => {
 
     const { user } = req.user
@@ -272,12 +272,10 @@ app.delete('/delete-note/:noteId', authenticatetoken, async (req, res) => {
             error: true, message: "Something Went Wrong!"
         })
     }
-
 })
 
 
 // update Pinned Note
-
 app.put('/update-pinned-note/:noteId', authenticatetoken, async (req, res) => {
 
     const noteId = req.params.noteId;
